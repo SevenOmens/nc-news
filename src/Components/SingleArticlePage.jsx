@@ -5,7 +5,8 @@ export default function SingleArticlePage({ singlearticledata }) {
   const date = new Date(singlearticledata.created_at).toUTCString();
   const [localVotes, setLocalVotes] = useState(0);
 
-  function handleClick() {
+  function handleClick(event) {
+    event.currentTarget.disabled = true;
     setLocalVotes(1);
     upvoteArticle(singlearticledata.article_id);
   }
