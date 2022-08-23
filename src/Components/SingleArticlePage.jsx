@@ -6,7 +6,6 @@ export default function SingleArticlePage({ singlearticledata }) {
   const date = new Date(singlearticledata.created_at).toUTCString();
   const [localVotes, setLocalVotes] = useState(0);
   const [minimiseComments, setMinimiseComments] = useState(true);
-  console.log(singlearticledata.article_id);
 
   function handleClick(event) {
     event.currentTarget.disabled = true;
@@ -17,7 +16,7 @@ export default function SingleArticlePage({ singlearticledata }) {
   return (
     <>
       <h1>{singlearticledata.title}</h1>
-      <h4>{singlearticledata.author}</h4>
+      <h4>Author - {singlearticledata.author}</h4>
       <div>{date}</div>
       <div>{singlearticledata.topic}</div>
       <p>{singlearticledata.body}</p>

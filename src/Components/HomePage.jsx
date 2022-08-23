@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import TopicsNavBar from "./TopicsNavBar";
+import User from "./User";
 
 export default function HomePage() {
   //   const [isLoading, setIsLoading] = useState(true);
