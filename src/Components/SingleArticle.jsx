@@ -15,5 +15,9 @@ export default function SingleArticle() {
     });
   }, [article_id]);
 
-  return <SingleArticlePage singlearticledata={singlearticledata} />;
+  return isLoading ? (
+    <h3>Loading</h3>
+  ) : (
+    <SingleArticlePage singlearticledata={singlearticledata} />
+  );
 }

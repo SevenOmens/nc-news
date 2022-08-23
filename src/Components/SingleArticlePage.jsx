@@ -1,6 +1,15 @@
+import { useState } from "react";
+import { upvoteArticle } from "../Api";
+
 export default function SingleArticlePage({ singlearticledata }) {
   const date = new Date(singlearticledata.created_at).toUTCString();
-  console.log(singlearticledata);
+  const [localVotes, setLocalVotes] = useState(0);
+
+  function handleClick() {
+    setLocalVotes(1);
+    upvoteArticle(singlearticledata.article_id);
+  }
+
   return (
     <>
       <h1>{singlearticledata.title}</h1>
@@ -8,6 +17,10 @@ export default function SingleArticlePage({ singlearticledata }) {
       <div>{date}</div>
       <div>{singlearticledata.topic}</div>
       <p>{singlearticledata.body}</p>
+      <div>Votes:{singlearticledata.votes + localVotes}</div>
+      <button className="article-vote-btn" onClick={handleClick}>
+        Upvote this article
+      </button>
     </>
   );
 }
