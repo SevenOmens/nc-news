@@ -9,11 +9,13 @@ export function GetAllArticles() {
 }
 
 export function GetArticlesByTopic(topic_slug) {
-  return fetch(
-    `https://adam-news.herokuapp.com/api/articles?topic=${topic_slug}`
-  )
-    .then((res) => res.json())
-    .then((data) => {
+  return axios
+    .get(`https://adam-news.herokuapp.com/api/articles`, {
+      params: {
+        topic: topic_slug,
+      },
+    })
+    .then(({ data }) => {
       return data;
     });
 }
@@ -23,5 +25,18 @@ export function getTopics() {
     .get("https://adam-news.herokuapp.com/api/topics")
     .then(({ data }) => {
       return data.topics;
+    });
+}
+
+export function getArticleById(article_id) {
+  return axios
+    .get(`https://adam-news.herokuapp.com/api/articles/${article_id}`, {
+      params: {
+        id: article_id,
+      },
+    })
+    .then(({ data }) => {
+      console.log(data.result);
+      return data.result;
     });
 }

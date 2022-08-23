@@ -8,7 +8,6 @@ export default function ArticlesByCategory() {
   const [isLoading, setIsLoading] = useState(true);
   const [articleByTopicData, setArticleByTopicData] = useState([]);
   const { topic_slug } = useParams();
-  console.log(topic_slug);
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,7 +15,7 @@ export default function ArticlesByCategory() {
       setArticleByTopicData(data);
       setIsLoading(false);
     });
-  }, []);
+  }, [topic_slug]);
 
   return (
     <>

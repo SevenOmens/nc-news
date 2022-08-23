@@ -19,6 +19,6 @@ export default function HomePage() {
 
 //Title [DONE]
 //User
-//Topics Nav Bar
+//Topics Nav Bar[DONE]
 //All articles button [DONE]
 //Selection of most recent articles
