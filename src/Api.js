@@ -40,3 +40,15 @@ export function getArticleById(article_id) {
       return data.result;
     });
 }
+
+export function upvoteArticle(article_id) {
+  const voteUpdate = { inc_votes: 1 };
+  return axios
+    .patch(
+      `https://adam-news.herokuapp.com/api/articles/${article_id}`,
+      voteUpdate
+    )
+    .then(({ data }) => {
+      return data.results;
+    });
+}
