@@ -63,7 +63,6 @@ export function getArticleComments(article_id) {
       }
     )
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 }

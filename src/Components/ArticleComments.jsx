@@ -3,21 +3,21 @@ import { useState, useEffect } from "react";
 import AddComment from "./AddComment";
 
 export default function ArticleComments({ article_id }) {
-  console.log(article_id);
   const [commentData, setCommentData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  console.log(commentData);
 
   useEffect(() => {
     getArticleComments(article_id).then((data) => {
       setCommentData(data);
       setIsLoading(false);
     });
-  }, []);
+  }, [article_id]);
 
   return (
     <>
-      <h4>This are comments</h4>
-      <AddComment />
+      <h4>These are comments</h4>
+      <AddComment commentData={commentData} setCommentData={setCommentData} />
       {commentData.map(({ body, author, votes, comment_id }) => {
         return (
           <div key={comment_id} className="comment-tile">
