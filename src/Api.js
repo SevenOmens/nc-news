@@ -54,13 +54,28 @@ export function upvoteArticle(article_id) {
 
 export function getArticleComments(article_id) {
   return axios
-    .get(`https://adam-news.herokuapp.com/api/articles/${21}/comments`, {
-      params: {
-        id: article_id,
-      },
-    })
+    .get(
+      `https://adam-news.herokuapp.com/api/articles/${article_id}/comments`,
+      {
+        params: {
+          id: article_id,
+        },
+      }
+    )
     .then(({ data }) => {
       console.log(data);
+      return data;
+    });
+}
+
+export function PostComment(article_id, newComment, username) {
+  const comment = { username: username, body: newComment };
+  return axios
+    .post(
+      `https://adam-news.herokuapp.com/api/articles/${article_id}/comments`,
+      comment
+    )
+    .then(({ data }) => {
       return data;
     });
 }
