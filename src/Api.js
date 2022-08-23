@@ -36,7 +36,6 @@ export function getArticleById(article_id) {
       },
     })
     .then(({ data }) => {
-      console.log(data.result);
       return data.result;
     });
 }
@@ -50,5 +49,18 @@ export function upvoteArticle(article_id) {
     )
     .then(({ data }) => {
       return data.results;
+    });
+}
+
+export function getArticleComments(article_id) {
+  return axios
+    .get(`https://adam-news.herokuapp.com/api/articles/${21}/comments`, {
+      params: {
+        id: article_id,
+      },
+    })
+    .then(({ data }) => {
+      console.log(data);
+      return data;
     });
 }
