@@ -10,7 +10,6 @@ export default function AddComment({ commentData, setCommentData }) {
   const successMessage = () => window.alert("Your comment has been posted");
 
   function handleClick(event) {
-    console.log(value);
     if (value === "Not Logged In") {
       event.preventDefault();
       window.alert("You must be logged in to post a comment");

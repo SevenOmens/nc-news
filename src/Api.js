@@ -1,18 +1,26 @@
 const axios = require("axios");
 
-export function GetAllArticles() {
+export function GetAllArticles(sort_by, order) {
   return axios
-    .get("https://adam-news.herokuapp.com/api/articles")
+    .get("https://adam-news.herokuapp.com/api/articles", {
+      params: {
+        sort_by,
+        order,
+      },
+    })
     .then(({ data }) => {
+      console.log(data);
       return data;
     });
 }
 
-export function GetArticlesByTopic(topic_slug) {
+export function GetArticlesByTopic(topic_slug, sort_by, order) {
   return axios
     .get(`https://adam-news.herokuapp.com/api/articles`, {
       params: {
         topic: topic_slug,
+        order,
+        sort_by,
       },
     })
     .then(({ data }) => {
