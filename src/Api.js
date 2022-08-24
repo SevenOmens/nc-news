@@ -1,9 +1,16 @@
 const axios = require("axios");
 
-export function GetAllArticles() {
+export function GetAllArticles(sort_by, order) {
+  // console.log(order);
   return axios
-    .get("https://adam-news.herokuapp.com/api/articles")
+    .get("https://adam-news.herokuapp.com/api/articles", {
+      params: {
+        sort_by,
+        order,
+      },
+    })
     .then(({ data }) => {
+      console.log(data);
       return data;
     });
 }

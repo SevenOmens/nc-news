@@ -20,7 +20,11 @@ export default function User() {
   ) : (
     <>
       <div>
-        <button onClick={userLogin}> Login</button>
+        <img
+          className="login-btn-img"
+          src="https://static.vecteezy.com/system/resources/thumbnails/006/017/592/small/ui-profile-icon-vector.jpg"
+          onClick={userLogin}
+        ></img>
       </div>
     </>
   );
