@@ -9,6 +9,15 @@
   right: -150px;
 }
 
+.topic-btn {
+  margin-left: 1%;
+  width: 32%;
+  border: none;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
 .all-articles-btn {
   width: 20rem;
   height: 5rem;

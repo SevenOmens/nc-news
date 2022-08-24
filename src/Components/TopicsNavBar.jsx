@@ -21,7 +21,7 @@ export default function TopicsNavBar() {
           return (
             <>
               <Link to={`/topics/${topic.slug}`}>
-                <button>{topic.slug}</button>
+                <button className="topic-btn">{topic.slug}</button>
               </Link>
             </>
           );
