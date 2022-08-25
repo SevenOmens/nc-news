@@ -20,7 +20,7 @@ export default function TopicsNavBar() {
         {topicsNav.map((topic) => {
           return (
             <>
-              <Link to={`/topics/${topic.slug}`}>
+              <Link to={`/topics/${topic.slug}`} key={topic.slug}>
                 <button className="topic-btn">{topic.slug}</button>
               </Link>
             </>

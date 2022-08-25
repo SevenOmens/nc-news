@@ -63,7 +63,7 @@ export function upvoteArticle(article_id) {
 export function getArticleComments(article_id) {
   return axios
     .get(
-      `https://adam-news.herokuapp.com/api/articles/${article_id}/comments`,
+      `https://adam-news.herokuapp.com/api/articles/${article_id}/comments?sort_by=created_at&order=ASC`,
       {
         params: {
           id: article_id,
@@ -83,6 +83,15 @@ export function PostComment(article_id, newComment, username) {
       comment
     )
     .then(({ data }) => {
+      return data;
+    });
+}
+
+export function deleteArticleComment(comment_id) {
+  return axios
+    .delete(`https://adam-news.herokuapp.com/api/comments/${comment_id}`)
+    .then(({ data }) => {
+      console.log(data);
       return data;
     });
 }
