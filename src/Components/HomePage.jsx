@@ -8,6 +8,10 @@ export default function HomePage() {
   return (
     <>
       <h1>Welcome to NC News</h1>
+      <Link to="/articles">
+        <button className="all-articles-btn">Click to see all articles</button>
+      </Link>
+      <TopicsNavBar />
     </>
   );
 }

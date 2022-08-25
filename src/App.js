@@ -8,6 +8,7 @@ import { UserContext } from "./Contexts/LoggedInUser";
 import { useState } from "react";
 import User from "./Components/User";
 import TopicsNavBar from "./Components/TopicsNavBar";
+import PageNotFound from "./Components/PageNotFound";
 
 function App() {
   const [value, setValue] = useState("Not Logged In");
@@ -16,12 +17,7 @@ function App() {
       <div className="App">
         <UserContext.Provider value={{ value, setValue }}>
           <User />
-          <Link to="/articles">
-            <button className="all-articles-btn">
-              Click to see all articles
-            </button>
-          </Link>
-          <TopicsNavBar />
+
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/articles" element={<AllArticlesList />} />
@@ -30,6 +26,8 @@ function App() {
               element={<ArticlesByCategory />}
             />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
+            <Route path="/*" element={<PageNotFound />} />
+            <Route path="/topics/*" element={<PageNotFound />} />
           </Routes>
         </UserContext.Provider>
       </div>
