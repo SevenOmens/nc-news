@@ -2,6 +2,7 @@ import { GetAllArticles } from "../Api";
 import { useState, useEffect } from "react";
 import ArticleListTile from "./ArticleListTile";
 import { Link, useSearchParams } from "react-router-dom";
+import TopicsNavBar from "./TopicsNavBar";
 
 const AllArticlesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,7 +14,6 @@ const AllArticlesList = () => {
   const sortBy = searchParams.get("sort_by");
   const orderBy = searchParams.get("order");
   useEffect(() => {
-    console.log("triggered");
     GetAllArticles(sortBy, orderBy).then((data) => {
       setArticleData(data);
       setIsLoading(false);
@@ -38,6 +38,15 @@ const AllArticlesList = () => {
 
   return (
     <>
+      <div>
+        <Link to="/">
+          <button className="home-btn">Home</button>
+        </Link>
+      </div>
+      <Link to="/articles">
+        <button className="all-articles-btn">Click to see all articles</button>
+      </Link>
+      <TopicsNavBar />
       <div onChange={onChangeSortBy}>
         <p>Sort articles by:</p>
         <input type="radio" value="created_at" name="sortby" /> Date
@@ -51,9 +60,6 @@ const AllArticlesList = () => {
         <input type="radio" value="DESC" name="order" id="DESC" /> Descending
       </div>
 
-      <Link to="/">
-        <button className="home-btn">Home</button>
-      </Link>
       <div>
         {isLoading ? (
           <h3>Loading</h3>

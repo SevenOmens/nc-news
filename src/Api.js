@@ -9,7 +9,6 @@ export function GetAllArticles(sort_by, order) {
       },
     })
     .then(({ data }) => {
-      console.log(data);
       return data;
     });
 }
