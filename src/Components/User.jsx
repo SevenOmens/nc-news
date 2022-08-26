@@ -1,5 +1,5 @@
-import { UserContext } from "../Contexts/LoggedInUser";
 import { useContext, useState } from "react";
+import { UserContext } from "../Contexts/LoggedInUser";
 
 export default function User() {
   const { value, setValue } = useContext(UserContext);
@@ -16,7 +16,10 @@ export default function User() {
   }
 
   return loggedIn ? (
-    <h3>You are logged in as {value.username}</h3>
+    <>
+      <h3 className="logged-in-text">You are logged in as {value.username}</h3>
+      <img className="user-avatar" src={value.avatar_url}></img>
+    </>
   ) : (
     <>
       <div>

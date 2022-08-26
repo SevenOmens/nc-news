@@ -1,7 +1,6 @@
-import { GetArticlesByTopic } from "../Api";
 import { useState, useEffect } from "react";
-
 import { Link, useParams, useSearchParams } from "react-router-dom";
+import { GetArticlesByTopic } from "../Api";
 import CategoryArticleList from "./CategoryArticlesListTile";
 import PageNotFound from "./PageNotFound";
 import TopicsNavBar from "./TopicsNavBar";
