@@ -15,15 +15,11 @@ export default function AddComment({ commentData, setCommentData }) {
       window.alert("You must be logged in to post a comment");
     } else {
       event.preventDefault();
-      PostComment(article_id, newComment, value.username).then(() => {
+      PostComment(article_id, newComment, value.username).then((data) => {
+        console.log(data);
         setCommentData((currComments) => {
-          const commentObj = {
-            author: value.username,
-            body: newComment,
-            votes: 0,
-          };
           const updatedComments = [...currComments];
-          updatedComments.unshift(commentObj);
+          updatedComments.unshift(data.comment);
           return updatedComments;
         });
       });

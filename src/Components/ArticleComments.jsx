@@ -6,7 +6,6 @@ import AddComment from "./AddComment";
 
 export default function ArticleComments({ article_id }) {
   const [commentData, setCommentData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const { value } = useContext(UserContext);
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function ArticleComments({ article_id }) {
         a.created_at < b.created_at ? 1 : -1
       );
       setCommentData(sortedComments);
-      setIsLoading(false);
     });
   }, [article_id]);
 
@@ -25,8 +23,8 @@ export default function ArticleComments({ article_id }) {
       <AddComment commentData={commentData} setCommentData={setCommentData} />
       {commentData.map(({ body, author, votes, comment_id }) => {
         return (
-          <div className="comments-section">
-            <div key={comment_id} className="comment-tile">
+          <div className="comments-section" key={comment_id}>
+            <div className="comment-tile">
               <div className="comment-body">{body}</div>
               <div className="comment-author">{author}</div>
               <div className="comment-votes">Votes:{votes}</div>
