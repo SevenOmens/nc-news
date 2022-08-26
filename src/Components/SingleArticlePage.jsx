@@ -3,7 +3,9 @@ import { upvoteArticle } from "../Api";
 import ArticleComments from "./ArticleComments";
 
 export default function SingleArticlePage({ singlearticledata }) {
-  const date = new Date(singlearticledata.created_at).toUTCString();
+  const date = new Date(singlearticledata.created_at)
+    .toUTCString()
+    .substring(0, 17);
   const [localVotes, setLocalVotes] = useState(0);
   const [minimiseComments, setMinimiseComments] = useState(true);
 
@@ -18,8 +20,8 @@ export default function SingleArticlePage({ singlearticledata }) {
       <h1>{singlearticledata.title}</h1>
       <h4>Author - {singlearticledata.author}</h4>
       <div>{date}</div>
-      <div>{singlearticledata.topic}</div>
-      <p>{singlearticledata.body}</p>
+      <div>Topic: {singlearticledata.topic}</div>
+      <p className="article-body">{singlearticledata.body}</p>
       <div>Votes:{singlearticledata.votes + localVotes}</div>
       <button className="article-vote-btn" onClick={handleClick}>
         Upvote this article

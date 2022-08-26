@@ -1,8 +1,8 @@
-import { getArticleComments } from "../Api";
 import { useState, useEffect, useContext } from "react";
-import AddComment from "./AddComment";
+import { getArticleComments } from "../Api";
 import { UserContext } from "../Contexts/LoggedInUser";
 import DeleteComment from "./DeleteComment";
+import AddComment from "./AddComment";
 
 export default function ArticleComments({ article_id }) {
   const [commentData, setCommentData] = useState([]);
@@ -21,21 +21,23 @@ export default function ArticleComments({ article_id }) {
 
   return (
     <>
-      <h4>These are comments</h4>
+      <h4>Comments Section</h4>
       <AddComment commentData={commentData} setCommentData={setCommentData} />
       {commentData.map(({ body, author, votes, comment_id }) => {
         return (
-          <div key={comment_id} className="comment-tile">
-            <div>{body}</div>
-            <div>{author}</div>
-            <div>Votes:{votes}</div>
-            {value.username === author ? (
-              <DeleteComment
-                comment_id={comment_id}
-                commentData={commentData}
-                setCommentData={setCommentData}
-              />
-            ) : null}
+          <div className="comments-section">
+            <div key={comment_id} className="comment-tile">
+              <div className="comment-body">{body}</div>
+              <div className="comment-author">{author}</div>
+              <div className="comment-votes">Votes:{votes}</div>
+              {value.username === author ? (
+                <DeleteComment
+                  comment_id={comment_id}
+                  commentData={commentData}
+                  setCommentData={setCommentData}
+                />
+              ) : null}
+            </div>
           </div>
         );
       })}

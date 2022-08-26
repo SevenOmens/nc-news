@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import RecentArticles from "./MostRecentArticles";
 import TopicsNavBar from "./TopicsNavBar";
 
 export default function HomePage() {
@@ -12,6 +12,7 @@ export default function HomePage() {
         <button className="all-articles-btn">Click to see all articles</button>
       </Link>
       <TopicsNavBar />
+      <RecentArticles />
     </>
   );
 }

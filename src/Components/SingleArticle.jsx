@@ -1,7 +1,7 @@
-import { getArticleById } from "../Api";
-import SingleArticlePage from "./SingleArticlePage";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { getArticleById } from "../Api";
+import SingleArticlePage from "./SingleArticlePage";
 import PageNotFound from "./PageNotFound";
 
 export default function SingleArticle() {

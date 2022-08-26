@@ -1,8 +1,8 @@
-import { GetAllArticles } from "../Api";
 import { useState, useEffect } from "react";
-import ArticleListTile from "./ArticleListTile";
 import { Link, useSearchParams } from "react-router-dom";
 import TopicsNavBar from "./TopicsNavBar";
+import ArticleListTile from "./ArticleListTile";
+import { GetAllArticles } from "../Api";
 
 const AllArticlesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
