@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function RecentArticleList({ recentArticles }) {
-  console.log(recentArticles);
-
   return (
     <>
       <header className="recent-articles-header"> Recent Articles</header>
@@ -12,8 +10,8 @@ export default function RecentArticleList({ recentArticles }) {
             const date = new Date(created_at).toUTCString().substring(0, 17);
             const bodyIntro = body.split(".")[0];
             return (
-              <Link to={`/articles/${article_id}`}>
-                <div key={article_id} className="article-list-tile">
+              <Link to={`/articles/${article_id}`} key={article_id}>
+                <div className="article-list-tile">
                   <img
                     className="article-list-photo"
                     src="https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

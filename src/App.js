@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import "./App.css";
 import AllArticlesList from "./Components/AllArticlesList";
@@ -7,7 +7,6 @@ import SingleArticle from "./Components/SingleArticle";
 import { UserContext } from "./Contexts/LoggedInUser";
 import { useState } from "react";
 import User from "./Components/User";
-import TopicsNavBar from "./Components/TopicsNavBar";
 import PageNotFound from "./Components/PageNotFound";
 
 function App() {
